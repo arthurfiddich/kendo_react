@@ -4,25 +4,21 @@ import LoginForm from './components/loginForm';
 import Logout from './components/logout';
 import NotFound from './components/notFound';
 import ServiceERP from './components/serviceErp';
-import auth from "./services/authService";
 import ProtectedRoute from './components/protectedRoute';
+import Tickets from './components/tickets';
+import Team from './components/team';
 
 class App extends React.Component {
-  state = {};
-
-  componentDidMount() {
-    const user = auth.getCurrentUser();
-    this.setState({ user });
-  }
   render() {
-    const { user } = this.state;
     return (
       <React.Fragment>
         <main className="container">
           <Switch>
             <Route path="/login" component={LoginForm} />
             <Route path="/logout" component={Logout} />
-            <ProtectedRoute path="/serviceErp" component={ServiceERP} user={user} />
+            <ProtectedRoute path="/serviceErp" component={ServiceERP} />
+            <ProtectedRoute path="/tickets" component={Tickets} />
+            <ProtectedRoute path="/team" component={Team} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/login" />
             <Redirect to="/not-found" />
