@@ -11,8 +11,8 @@ import Team from './components/team';
 class App extends React.Component {
   render() {
     return (
-      <React.Fragment>
-        <main className="container">
+      <div>
+        <main>
           <Switch>
             <Route path="/login" component={LoginForm} />
             <Route path="/logout" component={Logout} />
@@ -24,7 +24,7 @@ class App extends React.Component {
             <Redirect to="/not-found" />
           </Switch>
         </main>
-      </React.Fragment>
+      </div>
     );
   }
 }

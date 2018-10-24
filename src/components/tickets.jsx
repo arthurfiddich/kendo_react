@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import NavBar from "./navbar";
 import auth from "../services/authService";
 import TicketsTable from './ticketsTable';
+import Footer from './common/footer';
+import "bootstrap/dist/css/bootstrap.css";
+import "font-awesome/css/font-awesome.css";
 
 class Tickets extends Component {
     state = {
@@ -9,12 +12,13 @@ class Tickets extends Component {
     };
     render() {
         const { data } = this.state;
-        return <React.Fragment>
+        return <div>
             <NavBar user={auth.getCurrentUser()} />
             <div className="row">
                 <TicketsTable data={data} />
             </div>
-        </React.Fragment>
+            <Footer />
+        </div>
     }
 }
 

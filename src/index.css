@@ -4,11 +4,82 @@ body {
   font-family: sans-serif;
 }
 
+.card {
+  margin-top: 20%;
+}
+
+#root {
+  background-image:url(https://backgroundcheckall.com/wp-content/uploads/2017/12/login-page-background-images-hd-9.jpg)
+}
+
 .navbar {
-  margin-bottom: 30px;
+  margin-bottom: 3%;
+}
+
+.ticketsTableGrid {
+  height: 600px;
+  overflow-x: 'auto';
+  width: 86%;
+  margin-left: 7%;
+  margin-bottom: 5%;
+}
+
+.k-header {
+  background-color: #696969 !important;
+  color: rgb(249, 241, 241);
+}
+
+.customNavBar {
+  background-color: #428dca !important 
+}
+
+.uniqueColorDark {
+  background-color: #428dca !important 
+}
+
+img {
+  width: 50px;
+  margin-left: 30px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.unique-color-dark {
+  background-color: #007bff!important
+}
+
+/* footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+} */
+
+footer.page-footer {
+  bottom: 0;
+  color: rgb(249, 241, 241)
+}
+
+footer.page-footer .container-fluid {
+  width: auto
+}
+
+footer.page-footer .footer-copyright {
+  overflow: hidden;
+  background-color: rgba(0,0,0,.2);
+  color: rgba(255,255,255,.6)
+}
+
+footer.page-footer a {
+  color: rgb(249, 241, 241)
+}
+
+a {
+  cursor: pointer;
 }

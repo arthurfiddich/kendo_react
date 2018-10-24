@@ -58,28 +58,29 @@ class TicketsTable extends Component {
         const { result, dataState } = this.state;
         console.log('Columns: ', this.columns);
         return (
-            <Grid
-                style={{ height: '600px', 'overflow-x': 'auto' }}
-                data={result}
-                {...dataState}
-                onDataStateChange={this.dataStateChange}
-                sortable={true}
-                pageable={true}
-                pageSize={8}
-            >
-                <Column field="ticketId" title="Ticket ID" width="125px" filter={'numeric'} columnMenu={ColumnMenu} />
-                <Column field="product" title="Product" width="125px" columnMenu={ColumnMenu} />
-                <Column field="status" title="Status" width="125px" columnMenu={ColumnMenu} />
-                <Column field="openDate" title="Open Date" width="125px" filter={'date'} columnMenu={ColumnMenu} />
-                <Column field="messages" title="Messages" width="125px" columnMenu={ColumnMenu} />
-                <Column field="progress" title="Progress" width="125px" columnMenu={ColumnMenu} />
-                <Column field="payment" title="Payment" width="125px" columnMenu={ColumnMenu} />
-                <Column field="estimation" title="Estimation" width="125px" columnMenu={ColumnMenu} />
-                <Column field="techClose" title="Tech Close" width="125px" columnMenu={ColumnMenu} />
-                <Column field="closeDate" title="Close Date" width="125px" filter={'date'} columnMenu={ColumnMenu} />
-                <Column field="rating" title="Rating" width="125px" columnMenu={ColumnMenu} />
-                <Column field="actions" title="Actions" width="125px" columnMenu={ColumnMenu} />
-            </Grid>
+            <div className="ticketsTableGrid">
+                <Grid
+                    data={result}
+                    {...dataState}
+                    onDataStateChange={this.dataStateChange}
+                    sortable={true}
+                    pageable={true}
+                    pageSize={8}
+                >
+                    <Column field="ticketId" title="Ticket ID" width="125px" filter={'numeric'} columnMenu={ColumnMenu} />
+                    <Column field="product" title="Product" width="125px" columnMenu={ColumnMenu} />
+                    <Column field="status" title="Status" width="125px" columnMenu={ColumnMenu} />
+                    <Column field="openDate" title="Open Date" width="125px" filter={'date'} columnMenu={ColumnMenu} />
+                    <Column field="messages" title="Messages" width="125px" columnMenu={ColumnMenu} />
+                    <Column field="progress" title="Progress" width="125px" columnMenu={ColumnMenu} />
+                    <Column field="payment" title="Payment" width="125px" columnMenu={ColumnMenu} />
+                    <Column field="estimation" title="Estimation" width="125px" columnMenu={ColumnMenu} />
+                    <Column field="techClose" title="Tech Close" width="125px" columnMenu={ColumnMenu} />
+                    <Column field="closeDate" title="Close Date" width="125px" filter={'date'} columnMenu={ColumnMenu} />
+                    <Column field="rating" title="Rating" width="125px" columnMenu={ColumnMenu} />
+                    <Column field="actions" title="Actions" width="125px" columnMenu={ColumnMenu} />
+                </Grid>
+            </div>
         );
     }
 }
