@@ -1,24 +1,27 @@
 import React, { Component } from 'react'
 import { Grid, GridColumn as Column } from '@progress/kendo-react-grid';
-import TableHeader from './common/tableHeader';
+import { process } from '@progress/kendo-data-query';
+import ColumnMenu from '../components/columnMenu';
 
 class TicketsTable extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            data: this.createRandomData(5000),
-            skip: 0,
-            take: 10
-        };
-        this.pageChange = this.pageChange.bind(this);
+        this.state = this.createDataState({
+            take: 10,
+            skip: 0
+        });
     }
 
-    pageChange(event) {
-        console.log("Event: ", event);
-        this.setState({
-            skip: event.page.skip,
-            take: event.page.take
-        });
+    createDataState(dataState) {
+        const data = this.createRandomData(5000);
+        return {
+            result: process(data.slice(0), dataState),
+            dataState: dataState
+        };
+    }
+
+    dataStateChange = (event) => {
+        this.setState(this.createDataState(event.data));
     }
 
     /* Generating example data */
@@ -52,33 +55,30 @@ class TicketsTable extends Component {
         }));
     }
     render() {
-        const { data, skip, take } = this.state;
+        const { result, dataState } = this.state;
         console.log('Columns: ', this.columns);
         return (
-            // scrollable={'virtual'}
             <Grid
-                style={{ height: '600px' }}
-                rowHeight={40}
-                data={data.slice(skip, take + skip)}
-                pageSize={20}
-                total={data.length}
-                skip={skip}
-                take={take}
+                style={{ height: '600px', 'overflow-x': 'auto' }}
+                data={result}
+                {...dataState}
+                onDataStateChange={this.dataStateChange}
+                sortable={true}
                 pageable={true}
-                onPageChange={this.pageChange}
+                pageSize={8}
             >
-                <Column field="ticketId" title="Ticket ID" />
-                <Column field="product" title="Product" />
-                <Column field="status" title="Status" />
-                <Column field="openDate" title="Open Date" />
-                <Column field="messages" title="Messages" />
-                <Column field="progress" title="Progress" />
-                <Column field="payment" title="Payment" />
-                <Column field="estimation" title="Estimation" />
-                <Column field="techClose" title="Tech Close" />
-                <Column field="closeDate" title="Close Date" />
-                <Column field="rating" title="Rating" />
-                <Column field="actions" title="Actions" />
+                <Column field="ticketId" title="Ticket ID" width="125px" filter={'numeric'} columnMenu={ColumnMenu} />
+                <Column field="product" title="Product" width="125px" columnMenu={ColumnMenu} />
+                <Column field="status" title="Status" width="125px" columnMenu={ColumnMenu} />
+                <Column field="openDate" title="Open Date" width="125px" filter={'date'} columnMenu={ColumnMenu} />
+                <Column field="messages" title="Messages" width="125px" columnMenu={ColumnMenu} />
+                <Column field="progress" title="Progress" width="125px" columnMenu={ColumnMenu} />
+                <Column field="payment" title="Payment" width="125px" columnMenu={ColumnMenu} />
+                <Column field="estimation" title="Estimation" width="125px" columnMenu={ColumnMenu} />
+                <Column field="techClose" title="Tech Close" width="125px" columnMenu={ColumnMenu} />
+                <Column field="closeDate" title="Close Date" width="125px" filter={'date'} columnMenu={ColumnMenu} />
+                <Column field="rating" title="Rating" width="125px" columnMenu={ColumnMenu} />
+                <Column field="actions" title="Actions" width="125px" columnMenu={ColumnMenu} />
             </Grid>
         );
     }

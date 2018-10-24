@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
-// import { TabStrip, TabStripTab, PanelBar, PanelBarItem, PanelBarUtils, Menu, MenuItem, MenuItemModel, MenuItemLink, MenuItemArrow } from '@progress/kendo-react-layout';
 
 class NavBar extends Component {
   constructor(props) {
@@ -17,34 +16,6 @@ class NavBar extends Component {
     const { user } = this.props;
     return (
       <React.Fragment>
-        {/* <TabStrip selected={this.state.selected} onSelect={this.handleSelect}>
-          <TabStripTab title="Paris">
-            <div class="weather">
-              <h4>17<span>&ordm;C</span></h4>
-              <p>Rainy weather in Paris.</p>
-            </div>
-          </TabStripTab>
-          <TabStripTab title="New York">
-            <div class="weather">
-              <h4>29<span>&ordm;C</span></h4>
-              <p>Sunny weather in New York.</p>
-            </div>
-          </TabStripTab>
-          <TabStripTab title="London">
-            <div class="weather">
-              <h4>21<span>&ordm;C</span></h4>
-              <p>Sunny weather in London.</p>
-            </div>
-          </TabStripTab>
-          <TabStripTab title="Moscow">
-            <div class="weather">
-              <h4>16<span>&ordm;C</span></h4>
-              <p>Cloudy weather in Moscow.</p>
-            </div>
-          </TabStripTab>
-        </TabStrip> */}
-
-
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <Link className="navbar-brand" to="/">
             ActionBeans Logo
